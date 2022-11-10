@@ -7,6 +7,10 @@ import 'bucket_service.dart';
 // 배운점
 // Consumer 위젯을 사용하면 위젯트리 꼭대기에 있는 것을 사용할 수 있게 됨
 
+// 위젯트리 꼭대기에 접근하는 방법
+// 1. Consumer<클래스명> : 클래스 정보 갱신 시 함께 새로고침할 때 사용
+// 2. context.read<클래스명> : 1회성으로 클래스에 접근할 때 사용
+
 void main() {
   runApp(
     MultiProvider(
@@ -74,6 +78,7 @@ class HomePage extends StatelessWidget {
                         icon: Icon(CupertinoIcons.delete),
                         onPressed: () {
                           // 삭제 버튼 클릭시
+                          bucketService.deleteBucket(index);
                         },
                       ),
                       onTap: () {
